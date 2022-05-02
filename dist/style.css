@@ -1,0 +1,9 @@
+.current-temp > span,
+img {
+  vertical-align: middle;
+}
+
+.error-display {
+  visibility: hidden;
+  font-size: 12px;
+}
