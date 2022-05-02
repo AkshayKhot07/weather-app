@@ -1,3 +1,5 @@
+import { timeZone } from "./timezone.js";
+
 export const initializeWebsite = () => {
   let locSearchInput = document.querySelector(".locSearchInput");
   let locSearchIcon = document.querySelector(".locSearchIcon");
@@ -67,8 +69,22 @@ export const initializeWebsite = () => {
       console.log(data.name);
       errorDisplay.style.visibility = "hidden";
 
+      //Date and Time as per Location
+      let timeZoneData = await timeZone(data.coord.lat, data.coord.lon);
+      let locTimeZone = timeZoneData.timezone;
+      let locCurrTimeDate = new Date().toLocaleString("en-US", {
+        timeZone: locTimeZone,
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      });
+      console.log(locCurrTimeDate);
+
       locDisplayText.innerText = data.name;
-      dateTime.innerText = dateformatted;
+      dateTime.innerText = locCurrTimeDate.replace(",", "");
 
       let iconcode = data.weather[0].icon;
       curTempIcon.src = `http://openweathermap.org/img/w/${iconcode}.png`;
