@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <!-- <img src="#" alt="" class="iconImage" /> -->
+    <div class="container">
+      <div class="top-container">
+        <div class="loc-date-time">
+          <div class="locationSearch">
+            <input
+              type="search"
+              name="search"
+              placeholder="Location"
+              class="locSearchInput"
+            />
+            <i class="fa fa-search locSearchIcon" aria-hidden="true"></i>
+            <div class="error-display">
+              Location not found.
+              <br />
+              Search must be in the form of "City", "City, State" or "City,
+              Country".
+            </div>
+          </div>
+          <div class="locationDisplay">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="locationDisplayText"></span>
+          </div>
+          <p class="date-time"></p>
+        </div>
+        <div class="weather-details">
+          <div class="current-temp">
+            <img src="#" alt="cloudy" class="current-temp-icon" />
+            <span>
+              <span class="temp-display current-temp-display"></span>
+              <span class="celsius">°C</span>
+            </span>
+          </div>
+          <div class="max-min-temp">
+            <span class="temp-text">
+              <span class="temp-display max-temp-display"></span>
+              <span class="celsius">°C</span>
+              /
+              <span class="temp-display min-temp-display"></span>
+              <span class="celsius">°C</span>, Feels like
+              <span class="temp-display feelslike-temp"></span>
+              <span class="celsius">°C</span>
+            </span>
+          </div>
+          <p class="weather-desp">Cloudy</p>
+        </div>
+      </div>
+
+      <div class="middle-container">
+        <div class="hourly-forecast">
+          <h3>Hourly Forecast</h3>
+        </div>
+      </div>
+
+      <div class="bottom-container">
+        <div class="daily-forecast">
+          <h3>Daily Forecast</h3>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
