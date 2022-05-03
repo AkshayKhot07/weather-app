@@ -16,3 +16,8 @@ img {
 .hour-day-container {
   margin-right: 10px;
 }
+
+.daily-forecast {
+  display: flex;
+  flex-direction: row;
+}
