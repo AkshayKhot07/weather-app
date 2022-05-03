@@ -1,6 +1,8 @@
 import { timeZone } from "./timezone.js";
 import { hourlyForecast } from "./hourlyforecast.js";
 import { timeInHour } from "./hourlyforecast.js";
+import { dailyForecast } from "./dailyforecast.js";
+import { weekDay } from "./dailyforecast.js";
 
 // export const initializeWebsite = () => {
 let locSearchInput = document.querySelector(".locSearchInput");
@@ -70,6 +72,26 @@ async function getWeather() {
       hourlyForecastData.hourly[i].weather[0].icon
     }.png">
     <div>${kelvinToCelsius(hourlyForecastData.hourly[i].temp)} °C</div>
+    </div>
+    `;
+  }
+
+  //Daily Forecast
+  let dailyForecastContainer = document.querySelector(".daily-forecast");
+  dailyForecastContainer.innerHTML = "";
+  let dailyForecastData = await dailyForecast(data.coord.lat, data.coord.lon);
+  console.log(dailyForecastData);
+  for (let i = 0; i < dailyForecastData.daily.length - 1; i++) {
+    dailyForecastContainer.innerHTML += `
+    <div class="hour-day-container">
+    <div>${weekDay(
+      dailyForecastData.daily[i].dt,
+      dailyForecastData.timezone
+    )}</div>
+    <img src="http://openweathermap.org/img/w/${
+      dailyForecastData.daily[i].weather[0].icon
+    }.png">
+    <div>${kelvinToCelsius(dailyForecastData.daily[i].temp.day)} °C</div>
     </div>
     `;
   }
@@ -143,6 +165,27 @@ async function searchLocationWeather() {
       <div>${kelvinToCelsius(hourlyForecastData.hourly[i].temp)} °C</div>
       </div>
       `;
+    }
+
+    //Daily Forecast
+
+    let dailyForecastContainer = document.querySelector(".daily-forecast");
+    dailyForecastContainer.innerHTML = "";
+    let dailyForecastData = await dailyForecast(data.coord.lat, data.coord.lon);
+    console.log(dailyForecastData);
+    for (let i = 0; i < dailyForecastData.daily.length - 1; i++) {
+      dailyForecastContainer.innerHTML += `
+    <div class="hour-day-container">
+    <div>${weekDay(
+      dailyForecastData.daily[i].dt,
+      dailyForecastData.timezone
+    )}</div>
+    <img src="http://openweathermap.org/img/w/${
+      dailyForecastData.daily[i].weather[0].icon
+    }.png">
+    <div>${kelvinToCelsius(dailyForecastData.daily[i].temp.day)} °C</div>
+    </div>
+    `;
     }
   } else if (!response.ok) {
     errorDisplay.style.visibility = "visible";
