@@ -7,3 +7,12 @@ img {
   visibility: hidden;
   font-size: 12px;
 }
+
+.hourly-forecast {
+  display: flex;
+  flex-direction: row;
+}
+
+.hour-day-container {
+  margin-right: 10px;
+}
