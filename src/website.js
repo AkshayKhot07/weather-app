@@ -35,7 +35,7 @@ const key = "51f1682bb898645ed8d10bc6c17f21c1";
 
 async function getWeather() {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=Mumbai&APPID=${key}`
+    `https://api.openweathermap.org/data/2.5/weather?q=Mumbai&APPID=${key}`
   );
 
   const data = await response.json();
@@ -46,7 +46,7 @@ async function getWeather() {
   console.log(data.weather[0].icon);
 
   let iconcode = data.weather[0].icon;
-  curTempIcon.src = `http://openweathermap.org/img/w/${iconcode}.png`;
+  curTempIcon.src = `https://openweathermap.org/img/w/${iconcode}.png`;
 
   curTempDisplay.innerText = kelvinToCelsius(data.main.temp);
   maxTempDisplay.innerText = kelvinToCelsius(data.main.temp_max);
@@ -68,7 +68,7 @@ async function getWeather() {
       hourlyForecastData.hourly[i].dt,
       hourlyForecastData.timezone
     ).toLocaleLowerCase()}</div>
-    <img src="http://openweathermap.org/img/w/${
+    <img src="https://openweathermap.org/img/w/${
       hourlyForecastData.hourly[i].weather[0].icon
     }.png">
     <div>${kelvinToCelsius(hourlyForecastData.hourly[i].temp)} °C</div>
@@ -88,7 +88,7 @@ async function getWeather() {
       dailyForecastData.daily[i].dt,
       dailyForecastData.timezone
     )}</div>
-    <img src="http://openweathermap.org/img/w/${
+    <img src="https://openweathermap.org/img/w/${
       dailyForecastData.daily[i].weather[0].icon
     }.png">
     <div>${kelvinToCelsius(dailyForecastData.daily[i].temp.day)} °C</div>
@@ -106,7 +106,7 @@ async function searchLocationWeather() {
   locSearchInput.value = "";
 
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${locSearchInputValue}&APPID=${key}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${locSearchInputValue}&APPID=${key}`
   );
 
   if (response.ok) {
@@ -133,7 +133,7 @@ async function searchLocationWeather() {
     dateTime.innerText = locCurrTimeDate.replace(",", "");
 
     let iconcode = data.weather[0].icon;
-    curTempIcon.src = `http://openweathermap.org/img/w/${iconcode}.png`;
+    curTempIcon.src = `https://openweathermap.org/img/w/${iconcode}.png`;
 
     curTempDisplay.innerText = kelvinToCelsius(data.main.temp);
     maxTempDisplay.innerText = kelvinToCelsius(data.main.temp_max);
@@ -159,7 +159,7 @@ async function searchLocationWeather() {
         hourlyForecastData.hourly[i].dt,
         hourlyForecastData.timezone
       ).toLocaleLowerCase()}</div>
-      <img src="http://openweathermap.org/img/w/${
+      <img src="https://openweathermap.org/img/w/${
         hourlyForecastData.hourly[i].weather[0].icon
       }.png">
       <div>${kelvinToCelsius(hourlyForecastData.hourly[i].temp)} °C</div>
@@ -180,7 +180,7 @@ async function searchLocationWeather() {
       dailyForecastData.daily[i].dt,
       dailyForecastData.timezone
     )}</div>
-    <img src="http://openweathermap.org/img/w/${
+    <img src="https://openweathermap.org/img/w/${
       dailyForecastData.daily[i].weather[0].icon
     }.png">
     <div>${kelvinToCelsius(dailyForecastData.daily[i].temp.day)} °C</div>
