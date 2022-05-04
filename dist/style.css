@@ -1,3 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@300&family=Open+Sans&family=Poppins:wght@200&family=Water+Brush&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%; /* Look, it's not fixed anymore! */
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex-grow: 1;
+
+  margin: 0;
+  font-family: "Open Sans", "Lato", "Poppins", "Roboto", "Water Brush";
+  background-color: #f9c1b1;
+  background-image: linear-gradient(0deg, #f9c1b1 0%, #fb8085 74%);
+}
+
+.container {
+  padding: 10px;
+  margin-top: 20px;
+}
+
 .current-temp > span,
 img {
   vertical-align: middle;
@@ -13,11 +41,119 @@ img {
   flex-direction: row;
 }
 
-.hour-day-container {
-  margin-right: 10px;
-}
-
 .daily-forecast {
   display: flex;
   flex-direction: row;
+}
+
+.daily-forecast div {
+  /* margin-right: 10px; */
+  width: 6rem;
+}
+
+.hourly-forecast div {
+  width: 5rem;
+}
+
+.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.middle-container {
+  background-color: #fec8d8;
+  padding: 2px 0 0 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.bottom-container {
+  background-color: #fec8d8;
+  padding: 2px 0 0 10px;
+  border-radius: 10px;
+}
+
+.hour-day-container {
+  padding-bottom: 10px;
+}
+
+.top-container {
+  text-align: center;
+  color: whitesmoke;
+}
+
+.locationDisplayText {
+  font-weight: bold;
+}
+
+.error-display {
+  font-family: sans-serif;
+  font-size: 11px;
+}
+
+.date-time {
+  color: rgb(255, 255, 255, 0.6);
+}
+
+.current-temp {
+  font-size: 40px;
+}
+
+.max-min-temp,
+.weather-desp {
+  font-size: 20px;
+}
+
+.weather-desp {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.locSearchInput {
+  border-color: #f9c1b1;
+  border-radius: 5px;
+}
+
+/* Desktop */
+
+@media (min-width: 40em) {
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 40px;
+  }
+
+  .middle-container {
+    margin-bottom: 60px;
+  }
+
+  .daily-forecast div {
+    width: 8rem;
+  }
+
+  /*****Scroll Bar*****/
+  /* height */
+  ::-webkit-scrollbar {
+    /* width: 5px; */
+    height: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: lightcoral;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+  }
 }
